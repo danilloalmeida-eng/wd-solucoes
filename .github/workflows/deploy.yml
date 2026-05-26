@@ -1,0 +1,37 @@
+name: Deploy to Hostinger via FTP
+
+on:
+  push:
+    branches:
+      - main # O deploy acontecerá sempre que houver push na branch 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Mesma versão recomendada para Next.js 14+
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Static HTML
+        run: npm run build
+        # Como ajustamos o next.config.mjs para output: 'export',
+        # esse comando irá gerar uma pasta chamada 'out/' contendo os arquivos HTML estáticos.
+
+      - name: Deploy to Hostinger (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /public_html/ # Ajuste se o diretório do seu domínio na Hostinger for diferente

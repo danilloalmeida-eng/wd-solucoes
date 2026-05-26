@@ -1,0 +1,243 @@
+/* ===== SERVICE PAGES — Shared Styles ===== */
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-bottom: 5rem;
+}
+
+.heroBg {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 17, 22, 0.4) 0%,
+    rgba(14, 17, 22, 0.92) 70%,
+    rgba(14, 17, 22, 1) 100%
+  );
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 160px;
+  width: 100%;
+}
+
+.heroContent .eyebrow,
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #E63946;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.heroContent h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #FAFAF7;
+  margin-bottom: 1.25rem;
+  line-height: 1.05;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  color: rgba(250,250,247,0.6);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Shared */
+.darkTitle { color: #1A1A1A; }
+
+.rule {
+  width: 60px;
+  height: 4px;
+  background: #E63946;
+  border-radius: 2px;
+  margin: 1.25rem 0 2.5rem;
+}
+
+/* Feature grid */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.featureCard {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 2.25rem;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: #E63946;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.featureIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.featureCard p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Differentials grid */
+.diffGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.diffItem {
+  padding: 2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.diffItem:hover {
+  border-color: #E63946;
+  transform: translateY(-2px);
+}
+
+.diffNumber {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #E63946;
+  background: rgba(230,57,70,0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.diffItem h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FAFAF7;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.diffItem p {
+  font-size: 0.95rem;
+  color: rgba(250,250,247,0.5);
+  line-height: 1.5;
+}
+
+/* Plan grid */
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.planCard {
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.06);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.planCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+
+.planFeatured {
+  border-color: #E63946;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(230,57,70,0.15);
+}
+
+.planTag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #E63946;
+  background: rgba(230,57,70,0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+}
+
+.planCard h3 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #1A1A1A;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.planCard > p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.planFeatures {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+.planFeatures li {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .featureGrid,
+  .diffGrid,
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    min-height: 60vh;
+  }
+}

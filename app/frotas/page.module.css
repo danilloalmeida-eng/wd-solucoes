@@ -1,0 +1,420 @@
+/* ============================================
+   VERTICAL C — LOCAÇÃO DE FROTAS
+   page.module.css
+   ============================================ */
+
+.page {
+  background: var(--frotas-bg);
+  min-height: 100vh;
+}
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 6rem;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(16,185,129,0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--frotas-accent);
+  margin-bottom: 1.5rem;
+  padding: 0.3rem 1rem;
+  border: 1px solid var(--frotas-border);
+  border-radius: var(--radius-pill);
+  background: rgba(16,185,129,0.07);
+}
+
+.heroContent h1 {
+  color: var(--white);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1.75rem;
+}
+
+.accent {
+  background: linear-gradient(135deg, var(--frotas-accent) 0%, #6EE7B7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSub {
+  font-size: 1.0625rem;
+  color: var(--text-body);
+  max-width: 620px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--frotas-accent);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.ctaBtn:hover {
+  background: var(--frotas-accent-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--frotas-glow);
+}
+
+.secondaryBtn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.secondaryBtn:hover { color: var(--frotas-accent); }
+
+/* Differentiator chip */
+.differChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: rgba(16,185,129,0.08);
+  border: 1px solid var(--frotas-border);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.25rem;
+  font-size: 0.825rem;
+  color: var(--text-body);
+}
+
+.differDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--frotas-accent);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+.differChip strong { color: var(--frotas-accent); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* ---- Solutions ---- */
+.solutions {
+  padding: 7rem 0;
+  background: var(--frotas-bg-alt);
+  border-top: 1px solid var(--frotas-border);
+  border-bottom: 1px solid var(--frotas-border);
+}
+
+.eyebrowAlt {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--frotas-accent);
+  margin-bottom: 0.875rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--white);
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.solutionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.solutionCard {
+  background: rgba(16,185,129,0.04);
+  border: 1px solid var(--frotas-border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  transition: var(--transition);
+}
+.solutionCard:hover {
+  background: rgba(16,185,129,0.08);
+  border-color: var(--frotas-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px var(--frotas-glow);
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  background: rgba(16,185,129,0.1);
+  border: 1px solid var(--frotas-border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--frotas-accent);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+.solutionCard:hover .cardIcon { background: rgba(16,185,129,0.16); }
+
+.solutionCard h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.875rem;
+  letter-spacing: -0.01em;
+}
+
+.solutionCard p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ---- In-House Diferencial ---- */
+.diferencial {
+  padding: 7rem 0;
+  background: var(--frotas-bg);
+}
+
+.difBox {
+  max-width: 860px;
+}
+
+.difLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.difDot {
+  width: 8px;
+  height: 8px;
+  background: var(--frotas-accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.difLabel span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--frotas-accent);
+}
+
+.difBox h2 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 0;
+}
+
+.rule {
+  width: 40px;
+  height: 2px;
+  background: var(--frotas-accent);
+  border-radius: 2px;
+  margin: 1.5rem 0 1.75rem;
+}
+
+.difBox p {
+  font-size: 1.0625rem;
+  color: var(--text-body);
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.difBox p strong {
+  color: var(--frotas-accent);
+  font-weight: 700;
+}
+
+.difHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.difHighlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: rgba(16,185,129,0.05);
+  border: 1px solid var(--frotas-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  transition: var(--transition);
+}
+.difHighlight:hover {
+  border-color: var(--frotas-accent);
+  background: rgba(16,185,129,0.09);
+}
+
+.difIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.difHighlight div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.difHighlight strong {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.difHighlight span {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ---- CTA ---- */
+.ctaSection {
+  padding: 5rem 0 7rem;
+  background: var(--frotas-bg-alt);
+  border-top: 1px solid var(--frotas-border);
+}
+
+.ctaBox {
+  background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(5,150,105,0.06) 100%);
+  border: 1px solid var(--frotas-border);
+  border-radius: 24px;
+  padding: 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaGlow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.eyebrowLight {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--frotas-accent);
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBox h2 {
+  color: var(--white);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBox p {
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBtnLg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1.125rem 2.5rem;
+  background: var(--frotas-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+.ctaBtnLg:hover {
+  background: var(--frotas-accent-d);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px var(--frotas-glow);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .solutionGrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .hero { padding: 7rem 0 4rem; }
+  .ctaBox { padding: 2.5rem 1.5rem; }
+}

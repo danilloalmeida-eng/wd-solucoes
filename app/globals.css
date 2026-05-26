@@ -1,0 +1,290 @@
+/* ===============================================
+   W&D SOLUÇÕES INTEGRADAS — DESIGN SYSTEM v2.0
+   Portal de Soluções Corporativas
+   =============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ---- Root Tokens (Portal & Shared) ---- */
+:root {
+  /* Portal */
+  --portal-bg: #05050A;
+  --portal-bg-alt: #0D0D14;
+  --brand: #E63946;
+  --brand-dark: #C62D38;
+  --brand-light: #FF4D5A;
+
+  /* Shared neutrals */
+  --white: #FAFAF7;
+  --black: #050505;
+  --text-muted: rgba(255,255,255,0.55);
+  --text-body: rgba(255,255,255,0.75);
+  --border-subtle: rgba(255,255,255,0.08);
+  --border-medium: rgba(255,255,255,0.16);
+
+  /* Vertical A — Tecnologia */
+  --tech-bg:       #050A18;
+  --tech-bg-alt:   #0A1628;
+  --tech-accent:   #3B82F6;
+  --tech-accent-d: #2563EB;
+  --tech-glow:     rgba(59, 130, 246, 0.25);
+  --tech-border:   rgba(59, 130, 246, 0.2);
+
+  /* Vertical B — Automotivo */
+  --auto-bg:       #0D0D0D;
+  --auto-bg-alt:   #161616;
+  --auto-accent:   #C8C8C8;
+  --auto-accent-d: #A0A0A0;
+  --auto-glow:     rgba(200, 200, 200, 0.12);
+  --auto-border:   rgba(200, 200, 200, 0.15);
+  --auto-gold:     #D4AF6A;
+
+  /* Vertical C — Frotas */
+  --frotas-bg:       #060F0D;
+  --frotas-bg-alt:   #0C1F1B;
+  --frotas-accent:   #10B981;
+  --frotas-accent-d: #059669;
+  --frotas-glow:     rgba(16, 185, 129, 0.2);
+  --frotas-border:   rgba(16, 185, 129, 0.18);
+
+  /* Layout */
+  --radius:      16px;
+  --radius-sm:   8px;
+  --radius-pill: 100px;
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.3);
+  --shadow-elev: 0 16px 64px rgba(0,0,0,0.5);
+  --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-head:   'Space Grotesk', 'Inter', sans-serif;
+  --max-width:   1200px;
+  --header-h:    72px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--portal-bg);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ---- Typography ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.4rem, 5.5vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; }
+h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; }
+h4 { font-size: 1.125rem; font-weight: 600; }
+
+p {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.75;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand);
+  margin-bottom: 1rem;
+}
+
+/* ---- Layout Utilities ---- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section { padding: 7rem 0; }
+.section-sm { padding: 4rem 0; }
+
+/* ---- Vertical Color Overrides (applied via body class) ---- */
+body.v-tech   { background: var(--tech-bg); }
+body.v-auto   { background: var(--auto-bg); }
+body.v-frotas { background: var(--frotas-bg); }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(230,57,70,0.4);
+}
+
+.btn-tech {
+  background: var(--tech-accent);
+  color: #fff;
+}
+.btn-tech:hover {
+  background: var(--tech-accent-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--tech-glow);
+}
+
+.btn-auto {
+  background: transparent;
+  color: var(--auto-accent);
+  border: 1.5px solid var(--auto-accent);
+}
+.btn-auto:hover {
+  background: var(--auto-accent);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--auto-glow);
+}
+
+.btn-frotas {
+  background: var(--frotas-accent);
+  color: #fff;
+}
+.btn-frotas:hover {
+  background: var(--frotas-accent-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--frotas-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--border-medium);
+}
+.btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--brand);
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elev);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+.btn-whatsapp:hover {
+  background: #1DA851;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+}
+
+/* ---- Cards ---- */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  transition: var(--transition);
+}
+
+.card-light {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #1A1A1A;
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  transition: var(--transition);
+}
+.card-light p { color: #555; }
+
+/* ---- Divider ---- */
+.rule {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  margin: 1.25rem 0 2rem;
+}
+.rule-brand  { background: var(--brand); }
+.rule-tech   { background: var(--tech-accent); }
+.rule-auto   { background: var(--auto-accent); }
+.rule-frotas { background: var(--frotas-accent); }
+
+/* ---- Badge ---- */
+.badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-radius: var(--radius-pill);
+}
+.badge-tech   { background: rgba(59,130,246,0.15); color: var(--tech-accent); }
+.badge-auto   { background: rgba(200,200,200,0.12); color: var(--auto-accent); }
+.badge-frotas { background: rgba(16,185,129,0.15); color: var(--frotas-accent); }
+.badge-brand  { background: rgba(230,57,70,0.15); color: var(--brand); }
+
+/* ---- Grid ---- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .section { padding: 4rem 0; }
+  .container { padding: 0 1.25rem; }
+  h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+}
