@@ -27,7 +27,7 @@
   line-height: 1.7;
 }
 
-.darkTitle { color: #1A1A1A; }
+.darkTitle { color: var(--white); }
 
 .rule {
   width: 60px;

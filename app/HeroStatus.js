@@ -26,17 +26,17 @@ export default function HeroStatus() {
 
         {/* Card: Automotivo (meio) */}
         <div className={`${styles.stackCard} ${styles.stackCard2}`}>
-          <div className={styles.stackCardIcon} style={{ background: 'rgba(200,200,200,0.12)', color: '#C8C8C8' }}>
+          <div className={styles.stackCardIcon} style={{ background: 'rgba(46,134,171,0.15)', color: '#2E86AB' }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="3"></circle>
               <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
             </svg>
           </div>
           <div>
-            <div className={styles.stackCardLabel}>Vertical B</div>
+            <div className={styles.stackCardLabel}>Vertical A</div>
             <div className={styles.stackCardTitle}>Centro Automotivo</div>
           </div>
-          <div className={styles.stackCardBadge} style={{ color: '#C8C8C8', background: 'rgba(200,200,200,0.1)' }}>+30 anos</div>
+          <div className={styles.stackCardBadge} style={{ color: '#2E86AB', background: 'rgba(46,134,171,0.12)' }}>+30 anos</div>
         </div>
 
         {/* Card: Tecnologia (frente, no topo) */}
@@ -48,8 +48,8 @@ export default function HeroStatus() {
             </svg>
           </div>
           <div>
-            <div className={styles.stackCardLabel}>Vertical A</div>
-            <div className={styles.stackCardTitle}>Tecnologia &amp; Marketing</div>
+            <div className={styles.stackCardLabel}>Vertical B</div>
+            <div className={styles.stackCardTitle}>Tecnologia e Marketing</div>
           </div>
           <div className={styles.stackCardBadge} style={{ color: '#3B82F6', background: 'rgba(59,130,246,0.12)' }}>SaaS & IA</div>
         </div>

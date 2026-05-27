@@ -86,39 +86,7 @@ export default function PortalHome() {
       <section id="solucoes" className={styles.verticalsSection}>
         <div className={styles.bentoContainer}>
           
-          {/* Vertical A: Tecnologia (Featured) */}
-          <Link href="/tecnologia" className={`${styles.bentoCard} ${styles.techCard}`}>
-            <div className={styles.cardGlow}></div>
-            <div className={styles.bentoContent}>
-              <div className={styles.bentoHeader}>
-                <div className={`${styles.bentoIcon} ${styles.techIcon}`}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-                <span className="badge badge-tech">Vertical A</span>
-              </div>
-              <h2 className={styles.bentoTitle}>Tecnologia &amp; Marketing</h2>
-              <p className={styles.bentoDesc}>Engenharia de software, SaaS e tráfego de alta performance para escalar o seu negócio e dominar o seu mercado.</p>
-              
-              <div className={styles.bentoFeatures}>
-                <span className={styles.featureItem}>Desenvolvimento de Software & SaaS</span>
-                <span className={styles.featureItem}>Gestão de Tráfego (Google Ads B2B)</span>
-                <span className={styles.featureItem}>Automação de Processos com IA</span>
-              </div>
-
-              <div className={`${styles.bentoLink} ${styles.techLink}`}>
-                Agendar Consultoria Estratégica
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          {/* Vertical B: Automotivo */}
+          {/* Vertical A: Automotivo */}
           <Link href="/automotivo" className={`${styles.bentoCard} ${styles.autoCard}`}>
             <div className={styles.cardGlow}></div>
             <div className={styles.bentoContent}>
@@ -129,7 +97,7 @@ export default function PortalHome() {
                     <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
                   </svg>
                 </div>
-                <span className="badge badge-auto">Vertical B</span>
+                <span className="badge badge-auto">Vertical A</span>
               </div>
               <h2 className={styles.bentoTitle}>Centro Automotivo</h2>
               <p className={styles.bentoDesc}>Diagnóstico avançado e gestão de frotas com precisão tecnológica e expertise consolidada.</p>
@@ -141,6 +109,38 @@ export default function PortalHome() {
 
               <div className={`${styles.bentoLink} ${styles.autoLink}`}>
                 Solicitar Proposta para Frotas
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          {/* Vertical B: Tecnologia */}
+          <Link href="/tecnologia" className={`${styles.bentoCard} ${styles.techCard}`}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.bentoContent}>
+              <div className={styles.bentoHeader}>
+                <div className={`${styles.bentoIcon} ${styles.techIcon}`}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <span className="badge badge-tech">Vertical B</span>
+              </div>
+              <h2 className={styles.bentoTitle}>Tecnologia e Marketing</h2>
+              <p className={styles.bentoDesc}>Engenharia de software, SaaS e tráfego de alta performance para escalar o seu negócio e dominar o seu mercado.</p>
+              
+              <div className={styles.bentoFeatures}>
+                <span className={styles.featureItem}>Desenvolvimento de Software e SaaS</span>
+                <span className={styles.featureItem}>Gestão de Tráfego (Google Ads B2B)</span>
+                <span className={styles.featureItem}>Automação de Processos com IA</span>
+              </div>
+
+              <div className={`${styles.bentoLink} ${styles.techLink}`}>
+                Agendar Consultoria Estratégica
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>

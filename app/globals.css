@@ -30,14 +30,14 @@
   --tech-glow:     rgba(59, 130, 246, 0.25);
   --tech-border:   rgba(59, 130, 246, 0.2);
 
-  /* Vertical B — Automotivo */
-  --auto-bg:       #0D0D0D;
-  --auto-bg-alt:   #161616;
-  --auto-accent:   #C8C8C8;
-  --auto-accent-d: #A0A0A0;
-  --auto-glow:     rgba(200, 200, 200, 0.12);
-  --auto-border:   rgba(200, 200, 200, 0.15);
-  --auto-gold:     #D4AF6A;
+  /* Vertical A — Automotivo */
+  --auto-bg:       #060D14;
+  --auto-bg-alt:   #0C1A28;
+  --auto-accent:   #2E86AB;
+  --auto-accent-d: #1B6B8A;
+  --auto-glow:     rgba(46, 134, 171, 0.2);
+  --auto-border:   rgba(46, 134, 171, 0.18);
+  --auto-gold:     #E8B84B;
 
   /* Vertical C — Frotas */
   --frotas-bg:       #060F0D;
@@ -257,7 +257,7 @@ body.v-frotas { background: var(--frotas-bg); }
   border-radius: var(--radius-pill);
 }
 .badge-tech   { background: rgba(59,130,246,0.15); color: var(--tech-accent); }
-.badge-auto   { background: rgba(200,200,200,0.12); color: var(--auto-accent); }
+.badge-auto   { background: rgba(46,134,171,0.12); color: var(--auto-accent); }
 .badge-frotas { background: rgba(16,185,129,0.15); color: var(--frotas-accent); }
 .badge-brand  { background: rgba(230,57,70,0.15); color: var(--brand); }
 

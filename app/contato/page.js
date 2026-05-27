@@ -23,7 +23,7 @@ export default function ContatoPage() {
             <div className={styles.info}>
               <div className={styles.infoCard}>
                 <h3>📱 WhatsApp</h3>
-                <p>Respondemos no horário comercial — Seg a Sex 8h–18h, Sáb 8h–13h.</p>
+                <p>Respondemos no horário comercial — Segunda a Sexta, 8h–18h.</p>
                 <a href="https://wa.me/5511981527208" target="_blank" rel="noopener" className="btn btn-whatsapp">
                   (11) 98152-7208
                 </a>
@@ -42,8 +42,7 @@ export default function ContatoPage() {
                 <h3>🕐 Horário</h3>
                 <p>
                   Segunda a Sexta: 8h – 18h<br/>
-                  Sábado: 8h – 13h<br/>
-                  Domingo e feriados: fechado
+                  Sábado, domingo e feriados: fechado
                 </p>
               </div>
 
