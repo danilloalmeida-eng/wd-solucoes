@@ -15,7 +15,13 @@
 
 # next.js
 /.next/
+/.next-build/
+/.next-preview/
 /out/
+
+# local analysis and visual QA artifacts
+/graphify-out/
+/public/qa-*.png
 
 # production
 /build
