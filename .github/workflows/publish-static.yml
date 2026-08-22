@@ -38,10 +38,10 @@ jobs:
           DEPLOY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          test -f out/index.html
+          test -f .next-build/index.html
 
           deploy_dir="$(mktemp -d)"
-          cp -R out/. "$deploy_dir/"
+          cp -R .next-build/. "$deploy_dir/"
           touch "$deploy_dir/.nojekyll"
 
           cd "$deploy_dir"

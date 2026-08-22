@@ -1,9 +1,7 @@
-name: Deploy to Hostinger via FTP
+name: Manual fallback deploy to Hostinger via FTP
 
 on:
-  push:
-    branches:
-      - main # O deploy acontecerá sempre que houver push na branch 'main'
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -24,8 +22,6 @@ jobs:
 
       - name: Build Static HTML
         run: npm run build
-        # Como ajustamos o next.config.mjs para output: 'export',
-        # esse comando irá gerar uma pasta chamada 'out/' contendo os arquivos HTML estáticos.
 
       - name: Deploy to Hostinger (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -33,5 +29,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
+          local-dir: ./.next-build/
           server-dir: /public_html/ # Ajuste se o diretório do seu domínio na Hostinger for diferente
