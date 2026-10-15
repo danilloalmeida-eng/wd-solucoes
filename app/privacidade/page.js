@@ -21,7 +21,7 @@ export default function PrivacyPage() {
 
         <section>
           <h2>Responsável pelo atendimento</h2>
-          <p>Nome comercial informado: W&amp;D Soluções Integradas · CNPJ 63.402.907/0001-05. Para falar sobre seus dados pessoais, use o canal de WhatsApp indicado neste aviso.</p>
+          <p>Controladora e razão social: {siteConfig.legalName} · CNPJ {siteConfig.cnpj}. O atendimento e as solicitações sobre dados pessoais são conduzidos por {siteConfig.contactName}, pelo WhatsApp {siteConfig.phoneDisplay}.</p>
         </section>
 
         <section>
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
 
         <section>
           <h2>Medição opcional</h2>
-          <p>A medição opcional está desativada no momento. Se uma ferramenta de medição for habilitada no futuro, ela somente será carregada após sua escolha. A opção “Somente necessários” mantém a navegação e o formulário funcionando sem ativar a medição opcional. Você pode reabrir as preferências pelo botão “Privacidade”.</p>
+          <p>O site pode usar o Google Analytics 4 para medir páginas visitadas e ações como cliques em botões, sem enviar os campos preenchidos no formulário. A tag de medição só é carregada após sua escolha positiva. A opção “Somente necessários” mantém a navegação e o formulário funcionando sem enviar dados ao Google. Você pode reabrir as preferências pelo botão “Privacidade”.</p>
         </section>
 
         <section>

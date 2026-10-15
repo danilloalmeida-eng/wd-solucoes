@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   CONSENT_STORAGE_KEY,
   initializeDataLayer,
@@ -12,18 +13,54 @@ import {
 } from '@/lib/analytics';
 import { resolveIntent } from '@/lib/conversion.mjs';
 
-const RAW_GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
-const GTM_ID = /^GTM-[A-Z0-9]+$/i.test(RAW_GTM_ID) ? RAW_GTM_ID.toUpperCase() : '';
+const RAW_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
+const MEASUREMENT_ID = /^G-[A-Z0-9]+$/i.test(RAW_MEASUREMENT_ID)
+  ? RAW_MEASUREMENT_ID.toUpperCase()
+  : '';
 
-function setGoogleConsent(value) {
+function initializeGoogleTag() {
+  if (!MEASUREMENT_ID) return;
+
   initializeDataLayer();
   window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
-  window.gtag('consent', value === 'default' ? 'default' : 'update', {
-    ad_storage: value === 'granted' ? 'granted' : 'denied',
-    ad_user_data: value === 'granted' ? 'granted' : 'denied',
-    ad_personalization: value === 'granted' ? 'granted' : 'denied',
-    analytics_storage: value === 'granted' ? 'granted' : 'denied',
+
+  if (window.__wdGoogleTagConfigured) {
+    window.gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted',
+    });
+    return;
+  }
+
+  window.gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
   });
+  window.gtag('js', new Date());
+  window.gtag('consent', 'update', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted',
+  });
+  window.gtag('config', MEASUREMENT_ID, { send_page_view: false });
+  window.__wdGoogleTagConfigured = true;
+}
+
+function revokeGoogleConsent() {
+  if (typeof window.gtag !== 'function') return false;
+
+  window.gtag('consent', 'update', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
+  return Boolean(window.__wdGoogleTagConfigured);
 }
 
 function getPlacement(anchor) {
@@ -33,15 +70,14 @@ function getPlacement(anchor) {
 }
 
 export default function ConversionAnalytics() {
-  const [consent, setConsent] = useState(GTM_ID ? 'loading' : 'disabled');
+  const pathname = usePathname();
+  const [consent, setConsent] = useState(MEASUREMENT_ID ? 'loading' : 'disabled');
 
   useEffect(() => {
     initializeDataLayer();
     persistAttributionFromLocation();
 
-    if (GTM_ID) {
-      setGoogleConsent('default');
-
+    if (MEASUREMENT_ID) {
       let storedConsent = '';
       try {
         storedConsent = window.localStorage.getItem(CONSENT_STORAGE_KEY) || '';
@@ -51,7 +87,7 @@ export default function ConversionAnalytics() {
 
       if (storedConsent === 'granted') {
         setAnalyticsPermission(true);
-        setGoogleConsent('granted');
+        initializeGoogleTag();
         setConsent('granted');
       } else if (storedConsent === 'denied') {
         setAnalyticsPermission(false);
@@ -104,7 +140,7 @@ export default function ConversionAnalytics() {
     }
 
     function reopenConsent() {
-      if (GTM_ID) setConsent('unset');
+      if (MEASUREMENT_ID) setConsent('unset');
     }
 
     document.addEventListener('click', handleClick);
@@ -116,6 +152,16 @@ export default function ConversionAnalytics() {
     };
   }, []);
 
+  useEffect(() => {
+    if (consent !== 'granted' || typeof window.gtag !== 'function') return;
+
+    window.gtag('event', 'page_view', {
+      page_location: window.location.href,
+      page_path: pathname,
+      page_title: document.title,
+    });
+  }, [consent, pathname]);
+
   function chooseConsent(nextConsent) {
     try {
       window.localStorage.setItem(CONSENT_STORAGE_KEY, nextConsent);
@@ -125,19 +171,25 @@ export default function ConversionAnalytics() {
 
     const granted = nextConsent === 'granted';
     setAnalyticsPermission(granted);
-    setGoogleConsent(granted ? 'granted' : 'denied');
+
+    if (granted) initializeGoogleTag();
+    const shouldReload = !granted && revokeGoogleConsent();
     setConsent(nextConsent);
+
+    if (shouldReload) window.location.reload();
   }
 
   return (
     <>
-      {GTM_ID && consent === 'granted' && (
-        <Script id="wd-gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
+      {MEASUREMENT_ID && consent === 'granted' && (
+        <Script
+          id="wd-google-tag"
+          src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
       )}
 
-      {GTM_ID && consent === 'unset' && (
+      {MEASUREMENT_ID && consent === 'unset' && (
         <aside className="consent-banner" aria-labelledby="consent-title" aria-live="polite">
           <div>
             <strong id="consent-title">Medição com transparência</strong>
@@ -151,7 +203,7 @@ export default function ConversionAnalytics() {
         </aside>
       )}
 
-      {GTM_ID && !['loading', 'unset'].includes(consent) && (
+      {MEASUREMENT_ID && !['loading', 'unset'].includes(consent) && (
         <button
           type="button"
           className="consent-reopen"

@@ -14,17 +14,17 @@
 - Contrato para salvar o lead em endpoint externo antes do encaminhamento ao WhatsApp.
 - `lead_id` para deduplicação e fallback visível quando o endpoint ou o WhatsApp falhar.
 - Eventos sem dados pessoais para CTA, cases, início do formulário, lead persistido, WhatsApp, telefone e erro de persistência.
-- Google Tag Manager condicionado à autorização do visitante.
+- Google Analytics 4 direto condicionado à autorização do visitante.
 - Aviso de privacidade e mecanismo para reabrir a escolha de medição.
 - Resultados operacionais verificáveis nos cinco cases, sem percentuais ou métricas inventadas.
-- Workflows preparados para receber GTM e endpoint por secrets do GitHub.
+- Workflows preparados para receber o ID de medição do GA4 e endpoint por secrets do GitHub.
 
 ## Pendente de ativação externa
 
-O código não envia leads a um serviço externo nem carrega o GTM enquanto as variáveis estiverem vazias:
+O código não envia leads a um serviço externo nem carrega a tag do GA4 enquanto as variáveis estiverem vazias:
 
 ```env
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_LEAD_ENDPOINT=https://endpoint.exemplo.com/leads
 ```
 
@@ -32,8 +32,8 @@ Para concluir a ativação em produção ainda é necessário:
 
 1. definir o destino real dos leads;
 2. validar segurança, CORS, deduplicação e logs do endpoint;
-3. informar o contêiner GTM correto;
-4. configurar e validar os eventos no GTM/GA4;
+3. criar a propriedade e o fluxo GA4 corretos;
+4. configurar o ID `G-...` e validar os eventos diretamente no GA4;
 5. testar um lead completo em ambiente controlado;
 6. aprovar separadamente a publicação do contêiner ou alterações em Google Ads.
 

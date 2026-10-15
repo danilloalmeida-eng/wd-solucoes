@@ -102,7 +102,7 @@ export default function Home() {
         <div><span>Portfólio verificável</span><strong>{projects.length} projetos apresentados</strong></div>
         <div><span>Experiência setorial</span><strong>Automotivo, jurídico, alimentação e eventos</strong></div>
         <div><span>Tipos de entrega</span><strong>Sites, portais e sistema em produção</strong></div>
-        <div><span>Atendimento</span><strong>São Paulo · operação digital</strong></div>
+        <div><span>Atendimento</span><strong>São Paulo · foco na Zona Leste</strong></div>
       </div>
     </section>
 

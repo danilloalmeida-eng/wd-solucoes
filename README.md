@@ -1,6 +1,6 @@
 # W&D Soluções Integradas
 
-Site institucional e comercial da W&D, construído com Next.js e exportação estática. A experiência conecta portfólio, páginas de serviço, captação com atribuição, consentimento e preparação para GA4/GTM.
+Site institucional e comercial da W&D, construído com Next.js e exportação estática. A experiência conecta portfólio, páginas de serviço, captação com atribuição, consentimento e integração direta com o Google Analytics 4 (GA4).
 
 ## Desenvolvimento
 
@@ -39,13 +39,13 @@ O build estático é criado em `.next-build/`. O projeto usa `output: 'export'`;
 Copie `.env.example` para `.env.local` quando as integrações estiverem disponíveis:
 
 ```env
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_LEAD_ENDPOINT=https://endpoint.exemplo.com/leads
 ```
 
 Esses valores são incorporados ao JavaScript do navegador. Nunca use segredos privados nessas variáveis.
 
-Sem `NEXT_PUBLIC_LEAD_ENDPOINT`, o formulário encaminha o contexto ao WhatsApp e não dispara a conversão final `lead_submit`. Sem `NEXT_PUBLIC_GTM_ID`, o site funciona normalmente, mas o contêiner de mensuração não é carregado.
+Sem `NEXT_PUBLIC_LEAD_ENDPOINT`, o formulário encaminha o contexto ao WhatsApp e não dispara a conversão final `lead_submit`. Sem `NEXT_PUBLIC_GA_MEASUREMENT_ID`, o site funciona normalmente, mas a tag do GA4 não é carregada. A W&D optou por não usar Google Tag Manager nesta fase.
 
 ## Publicação e segurança
 

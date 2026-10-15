@@ -98,7 +98,7 @@ Sem essa camada, qualquer mudança de copy ou layout será opinião. Não será 
 
 **Implementação mínima recomendada:**
 
-1. Google Tag Manager como camada central.
+1. Google Analytics 4 com a tag do Google instalada diretamente no site, sem Google Tag Manager nesta fase.
 2. GA4 com eventos próprios.
 3. Google Ads com conversões separadas para lead real, clique no WhatsApp e clique no telefone.
 4. Meta Pixel apenas se houver ou houver previsão de mídia na Meta.
@@ -470,7 +470,7 @@ O grafo gerado contém 105 nós, 120 arestas e 23 comunidades. Houve aviso de qu
 
 | Prioridade | Ação | Impacto | Esforço |
 |---|---|---:|---:|
-| P0 | Instalar GTM/GA4 e eventos de conversão | Muito alto | Médio |
+| P0 | Instalar GA4 direto e eventos de conversão | Muito alto | Médio |
 | P0 | Corrigir e preservar `interesse`/UTMs | Muito alto | Baixo |
 | P0 | Salvar lead antes do WhatsApp | Muito alto | Médio |
 | P0 | Corrigir sobreposição dos heros internos | Alto | Baixo |

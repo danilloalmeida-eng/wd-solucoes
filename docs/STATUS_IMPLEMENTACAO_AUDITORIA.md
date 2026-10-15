@@ -4,7 +4,7 @@
 
 | Frente da auditoria | Status | Evidência no repositório |
 |---|---|---|
-| GTM/GA4 e eventos de conversão | Código pronto; ativação externa pendente | `components/ConversionAnalytics.js`, `lib/analytics.js` |
+| GA4 direto e eventos de conversão | Código pronto para `G-...`; criação da propriedade/fluxo e ativação externa pendentes. A propriedade hoje acessível é de outro domínio e não será usada | `components/ConversionAnalytics.js`, `lib/analytics.js`, `docs/PENDENCIAS_ATIVACAO_CONVERSAO.md` |
 | Interesse, UTMs e contexto do lead | Concluído | `lib/conversion.mjs`, `components/ContactForm.js` |
 | Fluxo do contato | WhatsApp-only confirmado; sem persistência no site | escolha informada pela W&D em 15/10/2026; sem CRM, banco ou endpoint |
 | Hero e mensagem principal | Concluído | `app/page.js` |
@@ -20,7 +20,7 @@
 | Imagens responsivas e estabilidade visual | Concluído | `next/image` com dimensões e `sizes` |
 | Headers de segurança e cache | Configurados e confirmados em produção | `public/.htaccess`; respostas reais do domínio incluem CSP, HSTS, X-Frame-Options e demais políticas |
 | Publicação inicial | Concluída em produção | commit `83e82a6`; workflow GitHub Actions concluído; home e rotas críticas respondem HTTP 200 |
-| Privacidade | Atualizada com marca/CNPJ e fluxo WhatsApp-only | `app/privacidade/page.js`; confirmar razão social exata e prazo interno de retenção |
+| Privacidade | Atualizada com razão social, CNPJ, Danillo Almeida, WhatsApp e fluxo WhatsApp-only | `app/privacidade/page.js`; falta apenas definir o prazo interno de retenção |
 | Limpeza de ativos e documentação | Concluído | ativos não usados removidos e README reescrito |
 | Métricas, depoimentos, equipe e credenciais | Dependência externa | requer evidências e autorização da W&D/clientes |
 | SLA, duração, suporte e condições comerciais | Dependência externa | requer definição operacional |

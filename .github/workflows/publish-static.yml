@@ -37,7 +37,7 @@ jobs:
 
       - name: Build static export
         env:
-          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_LEAD_ENDPOINT: ${{ secrets.NEXT_PUBLIC_LEAD_ENDPOINT }}
         run: npm run build
 

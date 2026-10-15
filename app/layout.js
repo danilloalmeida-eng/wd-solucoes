@@ -23,6 +23,8 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: siteConfig.name,
+    legalName: siteConfig.legalName,
+    taxID: siteConfig.cnpj.replace(/\D/g, ''),
     url: siteConfig.url,
     logo: `${siteConfig.url}/icon.png`,
     telephone: `+${siteConfig.phoneE164}`,
