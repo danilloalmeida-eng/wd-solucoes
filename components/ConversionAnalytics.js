@@ -26,9 +26,9 @@ function initializeGoogleTag() {
 
   if (window.__wdGoogleTagConfigured) {
     window.gtag('consent', 'update', {
-      ad_storage: 'granted',
-      ad_user_data: 'granted',
-      ad_personalization: 'granted',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
       analytics_storage: 'granted',
     });
     return;
@@ -42,12 +42,16 @@ function initializeGoogleTag() {
   });
   window.gtag('js', new Date());
   window.gtag('consent', 'update', {
-    ad_storage: 'granted',
-    ad_user_data: 'granted',
-    ad_personalization: 'granted',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
     analytics_storage: 'granted',
   });
-  window.gtag('config', MEASUREMENT_ID, { send_page_view: false });
+  window.gtag('config', MEASUREMENT_ID, {
+    send_page_view: false,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+  });
   window.__wdGoogleTagConfigured = true;
 }
 
