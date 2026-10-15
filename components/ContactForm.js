@@ -119,7 +119,7 @@ export default function ContactForm() {
       if (handoffWindow) handoffWindow.opener = null;
     }
 
-    setStatus({ state: 'submitting', message: 'Registrando seu contexto com segurança…' });
+    setStatus({ state: 'submitting', message: 'Preparando sua mensagem para o WhatsApp…' });
 
     try {
       if (endpoint) {
@@ -236,7 +236,7 @@ export default function ContactForm() {
       </div>
 
       <button className="button button--primary" type="submit" disabled={status.state === 'submitting'}>
-        {status.state === 'submitting' ? 'Registrando…' : 'Mapear meu gargalo'} <span aria-hidden="true">↗</span>
+        {status.state === 'submitting' ? 'Preparando…' : 'Mapear meu gargalo'} <span aria-hidden="true">↗</span>
       </button>
 
       <p className={`form-status form-status--${status.state}`} role="status">{status.message}</p>

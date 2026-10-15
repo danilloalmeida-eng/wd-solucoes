@@ -2,11 +2,11 @@
 
 ## Estado da implementação
 
-O site está preparado para preservar intenção, origem e campanha; emitir eventos sem dados pessoais; salvar um lead em um endpoint externo; e só então encaminhar a conversa ao WhatsApp.
+O código está preparado para preservar intenção, origem e campanha, emitir eventos sem dados pessoais e, se no futuro a W&D aprovar um endpoint, salvar o lead antes de encaminhar a conversa ao WhatsApp.
 
-As integrações externas permanecem desativadas enquanto as variáveis abaixo estiverem vazias. Isso evita enviar dados para uma conta ou serviço não aprovado.
+Estado atual confirmado pela W&D em 15/10/2026: o formulário deve encaminhar somente ao WhatsApp, sem CRM ou armazenamento persistente. O build está sem GTM e sem endpoint, então os eventos não são enviados a uma plataforma de analytics e `lead_submit` não é emitido. As integrações permanecem opcionais e desativadas até aprovação explícita.
 
-## Configuração de build
+## Configuração opcional para o futuro
 
 ```env
 NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX

@@ -14,19 +14,17 @@
 - [ ] Manter WhatsApp e telefone como microconversões, sem misturá-los ao lead persistido.
 - [ ] Validar consentimento aceito e recusado no Tag Assistant e GA4 DebugView.
 
-Nenhuma conta de GTM, GA4 ou Google Ads foi alterada pelo código deste repositório.
+Nenhuma conta de GTM, GA4 ou Google Ads foi alterada. Não há ID GTM configurado; o HTML de produção não carrega o contêiner. As APIs Google disponíveis retornam `invalid_grant`, e esta sessão não expõe uma conexão Composio utilizável. Reautorizar a integração antes de prosseguir.
 
 ## 2. Destino e governança dos leads
 
-- [ ] Escolher o destino: CRM, webhook, automação, banco de dados ou outro serviço.
-- [ ] Disponibilizar a URL HTTPS do endpoint e configurar `NEXT_PUBLIC_LEAD_ENDPOINT`.
+- [x] Definir o canal inicial: somente WhatsApp, sem CRM ou armazenamento de leads no site.
 - [ ] Definir responsáveis pelo acesso, tratamento e retorno aos contatos.
 - [ ] Definir prazo de resposta comercial que possa ser publicado no site.
 - [ ] Definir retenção, correção e exclusão dos dados pessoais.
-- [ ] Confirmar razão social, CNPJ e canal formal do controlador para completar o aviso de privacidade.
-- [ ] Implementar no endpoint: CORS restrito ao domínio, rate limit, logs sem dados sensíveis, validação, deduplicação por `lead_id` e resposta JSON.
-- [ ] Incluir a origem do endpoint em `connect-src` no `public/.htaccess`.
-- [ ] Enviar um lead controlado em produção e conferir conteúdo, atribuição e ausência de duplicidade.
+- [ ] Confirmar a razão social exatamente como consta no comprovante da Receita; nome comercial e CNPJ foram informados e acrescentados ao aviso.
+
+Integração com CRM/webhook, endpoint e persistência ficam fora do escopo atual. Reabrir apenas se a W&D decidir armazenar os leads além do histórico do WhatsApp; nesse caso, será necessário configurar endpoint HTTPS, CORS restrito, rate limit, validação, deduplicação, logs sem dados sensíveis e a origem em `connect-src`.
 
 ## 3. Provas comerciais que só a W&D pode fornecer
 
@@ -39,6 +37,8 @@ Nenhuma conta de GTM, GA4 ou Google Ads foi alterada pelo código deste reposit�
 - [ ] Certificações, parceiros e credenciais que possam ser comprovados.
 
 Até esses dados existirem, o site usa apenas entregas e resultados qualitativos verificáveis nos próprios produtos.
+
+- [x] Situação informada: ainda não há depoimentos aprovados; nenhum foi inventado ou publicado.
 
 ## 4. Oferta, foco e operação comercial
 
@@ -67,7 +67,9 @@ A publicação de 15/10/2026 foi concluída pelo [workflow do GitHub Actions](ht
 - [ ] Revisar mensalmente termos de busca, taxa de avanço do lead, qualidade comercial e páginas de entrada.
 - [ ] Substituir hipóteses de copy por aprendizados de conversas e dados reais.
 
-## Variáveis necessárias
+## Variáveis opcionais para integrações futuras
+
+Nenhuma variável é necessária para o fluxo atual, que encaminha o usuário ao WhatsApp.
 
 ```env
 NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
