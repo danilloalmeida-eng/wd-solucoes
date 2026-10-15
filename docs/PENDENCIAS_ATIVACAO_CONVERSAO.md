@@ -1,7 +1,7 @@
 # Dependências para concluir a ativação comercial
 
-**Atualizado em:** 13 de outubro de 2026\
-**Status:** implementação possível no repositório concluída; itens abaixo dependem de dados, acessos, evidências ou decisões externas.
+**Atualizado em:** 15 de outubro de 2026\
+**Status:** implementação e publicação inicial concluídas; os itens abaixo dependem de dados, acessos, evidências ou decisões externas.
 
 ## 1. Mensuração e contas externas
 
@@ -51,12 +51,14 @@ Até esses dados existirem, o site usa apenas entregas e resultados qualitativos
 
 ## 5. Hosting, publicação e validação final
 
-- [ ] Confirmar que a hospedagem é Apache/Hostinger e respeita o `.htaccess` publicado.
+- [x] Confirmar que a hospedagem é Hostinger/Apache e respeita o `.htaccess` publicado.
 - [ ] Fazer backup da versão atualmente publicada antes da troca.
-- [ ] Publicar o novo build após revisão do conteúdo.
-- [ ] Confirmar em produção os headers CSP, HSTS, Permissions-Policy, Referrer-Policy e cache.
-- [ ] Validar favicon, imagem social, sitemap, robots e dados estruturados nas ferramentas apropriadas.
+- [x] Publicar o novo build após revisão do conteúdo.
+- [x] Confirmar em produção os headers CSP, HSTS, Permissions-Policy, Referrer-Policy e cache.
+- [x] Validar em produção o status HTTP do sitemap, robots.txt, favicon, imagem social e a presença de dados estruturados.
 - [ ] Executar o roteiro completo: anúncio/UTM → landing page → formulário → endpoint → WhatsApp → GA4/Ads.
+
+A publicação de 15/10/2026 foi concluída pelo [workflow do GitHub Actions](https://github.com/danilloalmeida-eng/wd-solucoes/actions/runs/38682133992), a partir do commit `83e82a6`. A produção respondeu com HTTP 200 na home, privacidade e landing page de serviço; os headers de segurança foram observados no domínio. O site ainda está sem GTM e endpoint de leads porque esses valores não foram fornecidos.
 
 ## 6. Otimização contínua após lançamento
 

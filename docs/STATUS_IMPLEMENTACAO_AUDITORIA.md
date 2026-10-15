@@ -1,6 +1,6 @@
 # Status da implementação da auditoria
 
-**Atualizado em:** 13 de outubro de 2026
+**Atualizado em:** 15 de outubro de 2026
 
 | Frente da auditoria | Status | Evidência no repositório |
 |---|---|---|
@@ -18,7 +18,8 @@
 | SEO técnico, JSON-LD, favicon e OG PNG | Concluído | `app/layout.js`, `app/manifest.js`, ativos em `app/` e `public/og/` |
 | Acessibilidade, teclado e foco | Concluído no código | skip link, foco global e menu com Escape/scroll lock |
 | Imagens responsivas e estabilidade visual | Concluído | `next/image` com dimensões e `sizes` |
-| Headers de segurança e cache | Configurados para Apache | `public/.htaccess`; validação em produção pendente |
+| Headers de segurança e cache | Configurados e confirmados em produção | `public/.htaccess`; respostas reais do domínio incluem CSP, HSTS, X-Frame-Options e demais políticas |
+| Publicação inicial | Concluída em produção | commit `83e82a6`; workflow GitHub Actions concluído; home e rotas críticas respondem HTTP 200 |
 | Limpeza de ativos e documentação | Concluído | ativos não usados removidos e README reescrito |
 | Métricas, depoimentos, equipe e credenciais | Dependência externa | requer evidências e autorização da W&D/clientes |
 | SLA, duração, suporte e condições comerciais | Dependência externa | requer definição operacional |
