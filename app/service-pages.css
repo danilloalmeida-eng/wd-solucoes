@@ -1,0 +1,48 @@
+.service-landing { background: #080b10; }
+.service-landing__hero { padding: 10.5rem 0 6rem; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 75% 25%, rgba(130,184,255,.13), transparent 30%), #0d1420; }
+.service-landing__hero-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr); align-items: center; gap: 4rem; }
+.service-landing__copy h1 { max-width: 760px; margin: 0; font-size: clamp(3rem, 5.5vw, 6rem); font-weight: 500; letter-spacing: -.075em; line-height: .94; }
+.service-landing__copy > p:not(.eyebrow) { max-width: 640px; margin: 1.7rem 0 0; color: var(--muted); font-size: 1.06rem; line-height: 1.65; }
+.service-landing__proof > span { display: block; margin-bottom: .75rem; color: var(--mint); font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.service-landing__proof .project-preview__visual { min-height: 300px; padding: 1rem; }
+.service-landing__proof .project-preview__body { display: none; }
+.service-landing__section { padding: 8rem 0; border-bottom: 1px solid var(--line); }
+.service-landing__two-columns { display: grid; grid-template-columns: .85fr 1.15fr; gap: 6rem; align-items: start; }
+.service-landing__two-columns h2 { max-width: 580px; margin: 0; font-size: clamp(2.5rem, 5vw, 5.2rem); font-weight: 500; letter-spacing: -.075em; line-height: .95; }
+.service-landing__two-columns > div > p:not(.eyebrow) { max-width: 520px; color: var(--muted); line-height: 1.65; }
+.service-checklist { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.service-checklist li { position: relative; padding: 1.3rem .2rem 1.3rem 2.2rem; border-bottom: 1px solid var(--line); color: #d7dfe2; line-height: 1.55; }
+.service-checklist li::before { position: absolute; left: .2rem; content: '✓'; color: var(--mint); }
+.service-landing__deliverables { background: #f2efe8; color: #080b10; }
+.service-landing__deliverables .eyebrow { color: #315f98; }
+.service-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 3rem; border: 1px solid rgba(8,11,16,.18); background: rgba(8,11,16,.18); }
+.service-cards article { min-height: 220px; padding: 1.7rem; background: #f2efe8; }
+.service-cards span { color: #315f98; font-size: .68rem; font-weight: 800; }
+.service-cards h3 { max-width: 440px; margin: 4rem 0 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -.04em; }
+.service-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 3rem; background: var(--line); border: 1px solid var(--line); }
+.service-process article { min-height: 260px; padding: 1.5rem; background: #080b10; }
+.service-process span { color: var(--mint); font-size: .68rem; }
+.service-process h3 { margin: 3.5rem 0 .75rem; font-size: 1.25rem; font-weight: 600; }
+.service-process p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.6; }
+.service-landing__faq { padding: 8rem 0; background: #f2efe8; color: #080b10; }
+.service-landing__faq .eyebrow { color: #315f98; }
+.service-landing__faq h2 { margin: 0; font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 500; letter-spacing: -.075em; line-height: .95; }
+.service-landing__faq details { border-top: 1px solid rgba(8,11,16,.2); }
+.service-landing__faq details:last-child { border-bottom: 1px solid rgba(8,11,16,.2); }
+.service-landing__faq summary { padding: 1.2rem 0; cursor: pointer; font-weight: 700; }
+.service-landing__faq details p { margin: 0 0 1.2rem; color: #4f5864; line-height: 1.6; }
+.service-landing__cta { padding: 8rem 0 9rem; background: #101827; }
+.service-landing__cta h2 { max-width: 900px; margin: 0 0 2rem; font-size: clamp(3rem, 6vw, 6rem); font-weight: 500; letter-spacing: -.08em; line-height: .92; }
+
+@media (max-width: 900px) {
+  .service-landing__hero-grid, .service-landing__two-columns { grid-template-columns: 1fr; gap: 3rem; }
+  .service-process { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .service-landing__hero { padding: 9rem 0 4.5rem; }
+  .service-landing__copy h1 { font-size: clamp(3rem, 13vw, 4.5rem); }
+  .service-landing__section, .service-landing__faq { padding: 6rem 0; }
+  .service-cards, .service-process { grid-template-columns: 1fr; }
+  .service-landing__cta { padding: 6rem 0 7rem; }
+}

@@ -14,14 +14,25 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Mesma versão recomendada para Next.js 14+
+          node-version: '22'
           cache: 'npm'
 
       - name: Install Dependencies
         run: npm ci
 
+      - name: Validate tests and dependencies
+        run: |
+          npm test
+          npm audit --audit-level=high
+
       - name: Build Static HTML
+        env:
+          NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
+          NEXT_PUBLIC_LEAD_ENDPOINT: ${{ secrets.NEXT_PUBLIC_LEAD_ENDPOINT }}
         run: npm run build
+
+      - name: Validate static export
+        run: npm run test:export
 
       - name: Deploy to Hostinger (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# W&D Soluções Integradas
 
-## Getting Started
+Site institucional e comercial da W&D, construído com Next.js e exportação estática. A experiência conecta portfólio, páginas de serviço, captação com atribuição, consentimento e preparação para GA4/GTM.
 
-First, run the development server:
+## Desenvolvimento
+
+Requisitos: Node.js 20.9 ou superior e npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Rotinas de validação:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm test
+npm run assets:generate
+npm run build
+npm run test:export
+npm audit
+```
 
-## Learn More
+O build estático é criado em `.next-build/`. O projeto usa `output: 'export'`; por isso não depende de servidor Node em produção.
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura principal
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `app/`: rotas, metadados, manifesto, sitemap e estilos.
+- `app/solucoes/[slug]/`: landing pages estáticas de alta intenção.
+- `components/`: navegação, formulário, analytics e componentes de cases.
+- `lib/projects.js`: fonte única dos cases e evidências apresentadas.
+- `lib/services.js`: fonte única das landing pages de serviço.
+- `lib/site-config.js`: telefone, domínio e dados institucionais compartilhados.
+- `scripts/`: testes de conteúdo/conversão e geração dos ativos sociais.
+- `docs/`: mensuração, status e dependências de ativação.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Variáveis públicas de build
 
-## Deploy on Vercel
+Copie `.env.example` para `.env.local` quando as integrações estiverem disponíveis:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+NEXT_PUBLIC_LEAD_ENDPOINT=https://endpoint.exemplo.com/leads
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Esses valores são incorporados ao JavaScript do navegador. Nunca use segredos privados nessas variáveis.
+
+Sem `NEXT_PUBLIC_LEAD_ENDPOINT`, o formulário encaminha o contexto ao WhatsApp e não dispara a conversão final `lead_submit`. Sem `NEXT_PUBLIC_GTM_ID`, o site funciona normalmente, mas o contêiner de mensuração não é carregado.
+
+## Publicação e segurança
+
+Os workflows em `.github/workflows/` constroem o site e publicam o conteúdo estático. O arquivo `public/.htaccess` adiciona headers de segurança e cache em hospedagem Apache/Hostinger. Se o endpoint de leads estiver em outro domínio, inclua essa origem em `connect-src` na política CSP antes da ativação.
+
+O deploy não deve ser considerado validado até conferir headers, consentimento, eventos e recebimento de um lead no ambiente de produção.
+
+## Conteúdo verificável
+
+Não publicar métricas, depoimentos, logotipos ou credenciais sem evidência e autorização. As pendências que exigem informação ou acesso externo estão em [docs/PENDENCIAS_ATIVACAO_CONVERSAO.md](docs/PENDENCIAS_ATIVACAO_CONVERSAO.md).
