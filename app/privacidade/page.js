@@ -36,7 +36,7 @@ export default function PrivacyPage() {
 
         <section>
           <h2>Compartilhamento e conservação</h2>
-          <p>No momento, o site não salva o formulário em CRM ou banco de dados. O WhatsApp/Meta recebe o texto pré-preenchido quando a conversa é aberta, conforme os próprios termos e políticas do serviço. A W&amp;D recebe a mensagem se você decidir enviá-la e a conserva no histórico de atendimento. Para solicitar acesso, correção ou eliminação, fale pelo canal indicado abaixo.</p>
+          <p>No momento, o site não salva o formulário em CRM ou banco de dados. O WhatsApp/Meta recebe o texto pré-preenchido quando a conversa é aberta, conforme os próprios termos e políticas do serviço. A W&amp;D recebe a mensagem se você decidir enviá-la e conserva as conversas no histórico de atendimento por até 4 meses. Para solicitar acesso, correção ou eliminação, fale pelo canal indicado abaixo.</p>
         </section>
 
         <section>
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
           <p>Você pode pedir confirmação, acesso, correção ou eliminação dos seus dados e esclarecer dúvidas pelo WhatsApp <a href={createDirectWhatsAppUrl('Olá! Quero falar sobre privacidade e meus dados.')} target="_blank" rel="noreferrer" data-placement="privacy_page">{siteConfig.phoneDisplay}</a>.</p>
         </section>
 
-        <p className="privacy-content__updated">Última atualização: 15 de outubro de 2026.</p>
+        <p className="privacy-content__updated">Última atualização: 16 de outubro de 2026.</p>
       </article>
     </main>
   );

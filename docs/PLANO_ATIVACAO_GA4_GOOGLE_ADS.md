@@ -1,14 +1,16 @@
 # Plano de ativação do GA4 e Google Ads
 
-**Preparado em:** 15 de outubro de 2026  
-**Modo:** construção; nenhuma conta Google foi alterada por este plano  
+**Atualizado em:** 16 de outubro de 2026
+**Modo:** execução solicitada; GA4 e campanha aguardam permissões/acesso corretos
 **Escopo inicial recomendado:** geração de contatos para criação de sites comerciais em São Paulo, com foco de mensagem na Zona Leste
 
 ## 1. Estado atual e problema
 
 - A conta Google Analytics conectada já possui uma propriedade cujo fluxo web aponta para outro domínio. Ela não será reutilizada.
+- A conta Analytics é a da W&D (`accounts/403133078`), mas a conexão Composio atual não tem o escopo de escrita `analytics.edit`. A tentativa de criar a propriedade foi recusada pelo Google com `ACCESS_TOKEN_SCOPE_INSUFFICIENT`; nenhuma propriedade foi criada.
 - O site está preparado para integrar o Google Analytics 4 diretamente, sem Google Tag Manager, mas ainda não possui um ID de medição `G-...` em produção.
-- As contas Google Ads acessíveis não identificam uma conta própria e pronta da W&D. Será criada uma conta exclusiva ou usado um cliente vazio explicitamente confirmado para a empresa.
+- A W&D confirmou que já tem conta Google Ads e pediu para usar a conexão Composio existente, sem criar outra conta.
+- A conexão Composio atualmente acessível não contém uma conta identificável como W&D: o cliente ativo consultável é `4090819964` (“ViVa Confeitaria”); `4148821792` está desativado/não habilitado; `2696566125` é um administrador cuja única subconta listada é “ViVa Confeitaria”. Nenhuma campanha foi criada ou alterada.
 - O único resultado mensurável no site é a abertura do WhatsApp. Esse evento não confirma que a mensagem foi enviada nem que o contato é qualificado.
 
 ## 2. Alterações exatas no Google Analytics 4
@@ -25,17 +27,16 @@
 | Publicidade | Não aplicável | Google Signals, remarketing e personalização de anúncios desligados no lançamento |
 | Evento-chave | Nenhum | Marcar `whatsapp_click` como evento-chave no GA4, identificado como proxy de intenção |
 
-Depois da criação, o ID público será salvo como secret `NEXT_PUBLIC_GA_MEASUREMENT_ID`, o site será republicado e o fluxo será testado no Realtime, DebugView e Tag Assistant.
+Depois de reconectar o Google Analytics pelo Composio com o escopo de edição, criar a propriedade e o fluxo web. Então, salvar o ID público como secret `NEXT_PUBLIC_GA_MEASUREMENT_ID`, republicar o site e testar o fluxo no Realtime, DebugView e Tag Assistant.
 
 ## 3. Conta e campanha Google Ads
 
 ### Conta
 
-- Nome: `W&D Soluções Integradas`.
-- País de faturamento: Brasil.
-- Moeda: BRL.
-- Fuso horário: `America/Sao_Paulo`.
-- Perfil: organização, usando a razão social `W&D Soluções Integradas` e CNPJ `63.402.907/0001-05`.
+- Usar a conta existente da W&D acessível via Composio; não criar uma nova conta Google Ads.
+- **Bloqueio atual:** o usuário/token conectado ao Composio não expõe uma conta W&D. Não usar a conta `4090819964` (“ViVa Confeitaria”) nem tocar em campanhas de terceiros.
+- **Ação para destravar:** reconectar o toolkit Google Ads no Composio com o usuário Google que tenha acesso à conta W&D, ou conceder a esse usuário acesso à conta W&D. Depois, confirmar pelo nome e ID do cliente, moeda BRL e fuso `America/Sao_Paulo` antes de qualquer escrita.
+- Perfil esperado: organização, razão social `W&D Soluções Integradas` e CNPJ `63.402.907/0001-05`.
 - Responsável operacional: Danillo Almeida, WhatsApp `(11) 98152-7208`.
 - A forma de pagamento será inserida pelo titular diretamente no Google; não será solicitada nem armazenada no projeto.
 
@@ -55,14 +56,14 @@ Depois da criação, o ID público será salvo como secret `NEXT_PUBLIC_GA_MEASU
 | Programação | Segunda a sexta, 08h–20h; sábado, 09h–13h; domingo desligado |
 | Dispositivos | Todos, sem ajuste inicial |
 | Lance | Maximizar cliques, com limite inicial de CPC de R$ 8,00 como hipótese de controle |
-| Orçamento médio diário | R$ 50,00 |
-| Limite mensal de cobrança | R$ 1.520,00, equivalente a 30,4 vezes o orçamento diário |
+| Orçamento médio diário | R$ 20,00 (definido pelo titular em 16/10/2026) |
+| Limite mensal de cobrança | R$ 608,00 (R$ 20 × 30,4, para a maioria das campanhas) |
 | URL final principal | `https://wedsolucoes.com.br/solucoes/site-comercial/` |
 | URL final automotiva | `https://wedsolucoes.com.br/solucoes/solucoes-automotivas/` |
 | Conversão | `whatsapp_click` importada como secundária no Google Ads; não usada para lance até validar qualidade |
 | Marcação | Marcação automática ligada e UTMs no sufixo da URL final |
 
-O Google pode concentrar até duas vezes o orçamento médio diário em um dia, mas, para a maioria das campanhas, o limite mensal permanece em 30,4 vezes o orçamento médio diário.
+O Google pode concentrar até duas vezes o orçamento médio diário em um dia (até R$ 40 em um dia de maior tráfego); para a maioria das campanhas, o limite mensal permanece em 30,4 vezes o orçamento médio diário. Fonte: [limites de gasto do Google Ads](https://support.google.com/google-ads/answer/10486637/about-spending-limits). A campanha será criada pausada e não poderá veicular nem consumir orçamento até validação e ativação autorizada.
 
 ### Grupos e palavras-chave
 
@@ -148,7 +149,7 @@ Métricas de validação nas primeiras duas semanas:
 - custo por conversa recebida e custo por contato qualificado, calculados manualmente;
 - desempenho por grupo, palavra-chave, horário, dispositivo e região.
 
-Não haverá promessa de posição, volume de contatos, CPA ou vendas. Mudanças de orçamento, lance, localização, conversão principal ou ativação exigirão nova confirmação.
+Não haverá promessa de posição, volume de contatos, CPA ou vendas. O titular autorizou uma campanha separada com orçamento médio de R$ 20/dia, sem alterar outras campanhas. A criação continua pendente da identificação da conta W&D correta no Composio; depois, validar o estado pausado, o orçamento, o alvo geográfico e os demais parâmetros antes de qualquer ativação.
 
 ## 5. Reversão e itens fora do escopo
 
@@ -170,8 +171,8 @@ Não serão alterados:
 
 ## 6. Ações necessárias do titular
 
-1. Aprovar ou ajustar o orçamento de R$ 50 por dia e o foco inicial em criação de sites.
-2. Inserir a forma de pagamento diretamente no Google quando a conta solicitar.
-3. Confirmar um prazo real de resposta comercial e o prazo de retenção das conversas no WhatsApp para concluir as pendências de privacidade e atendimento.
+1. **Destravar Google Ads:** reconectar o Composio com a conta W&D correta ou conceder acesso ao usuário Google já conectado. O acesso atual aponta para a ViVa Confeitaria e não será usado.
+2. Inserir a forma de pagamento diretamente no Google quando a conta correta solicitar.
+3. GA4: criar/indicar uma propriedade e fluxo exclusivos para `wedsolucoes.com.br` e fornecer o ID `G-...`; a propriedade disponível aponta para outro domínio e não será reutilizada.
 
-**Aguardando sua aprovação para executar.**
+Definições operacionais já confirmadas e aplicadas ao site/documentação: resposta em até 2 horas; conversas mantidas por até 4 meses. Para concluir o trabalho externo, são necessárias duas correções de acesso: escopo de edição no Analytics e a conta W&D no toolkit Google Ads do Composio.
