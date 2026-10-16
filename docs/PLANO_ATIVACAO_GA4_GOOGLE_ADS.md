@@ -149,7 +149,7 @@ Métricas de validação nas primeiras duas semanas:
 - custo por conversa recebida e custo por contato qualificado, calculados manualmente;
 - desempenho por grupo, palavra-chave, horário, dispositivo e região.
 
-Não haverá promessa de posição, volume de contatos, CPA ou vendas. O titular autorizou uma campanha separada com orçamento médio de R$ 20/dia, sem alterar outras campanhas. A criação continua pendente da identificação da conta W&D correta no Composio; depois, validar o estado pausado, o orçamento, o alvo geográfico e os demais parâmetros antes de qualquer ativação.
+Não haverá promessa de posição, volume de contatos, CPA ou vendas. O titular definiu o escopo de uma campanha separada com orçamento médio de R$ 20/dia, sem alterar outras campanhas. A conta-alvo ainda precisa ser identificada no Composio; após a reconexão, confirmar a identidade da W&D e validar o estado pausado, o orçamento, o alvo geográfico e os demais parâmetros antes da criação. Qualquer ativação futura continua separada dessa criação e não está autorizada por este plano.
 
 ## 5. Reversão e itens fora do escopo
 

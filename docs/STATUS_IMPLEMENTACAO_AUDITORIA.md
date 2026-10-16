@@ -24,7 +24,7 @@
 | Limpeza de ativos e documentação | Concluído | ativos não usados removidos e README reescrito |
 | Métricas, depoimentos, equipe e credenciais | Dependência externa | requer evidências e autorização da W&D/clientes |
 | SLA e retenção de conversas | Concluído | retorno em até 2 horas; conversas mantidas por até 4 meses |
-| Campanha Google Ads | Aprovada, bloqueada por conta incorreta no Composio | conexão ativa aponta para ViVa Confeitaria; reconectar/autorizar a conta W&D antes de criar a campanha de R$ 20/dia |
+| Campanha Google Ads | Escopo e orçamento definidos; criação bloqueada até identificar a conta W&D no Composio | conexão ativa aponta para ViVa Confeitaria; reconectar/autorizar a conta W&D antes de criar a campanha separada de R$ 20/dia |
 | Duração, suporte e condições comerciais | Dependência externa | requer definição operacional |
 | Testes A/B e otimização por conversão | Dependência de tráfego | executar após publicação e volume de dados |
 

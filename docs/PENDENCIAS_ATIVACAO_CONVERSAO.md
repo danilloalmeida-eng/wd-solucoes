@@ -11,7 +11,7 @@
 - **Oferta e mídia:** definir serviço prioritário, formato do diagnóstico inicial e prazo de proposta/suporte. A região já foi definida como São Paulo capital, com foco na Zona Leste.
 - **Opcional, para reforçar prova:** autorizações e evidências de resultados, perfis sociais/Google Business, equipe e credenciais. Depoimentos não são necessários agora; a W&D informou que ainda não tem.
 
-O código e os textos já foram preparados com os dados fornecidos. A campanha separada e pausada está aprovada com orçamento médio de R$ 20/dia (limite mensal típico de R$ 608); a execução depende de acesso Composio à conta correta da W&D. Os itens de prova social podem ficar para depois.
+O código e os textos já foram preparados com os dados fornecidos. O escopo e o orçamento da campanha separada foram definidos pelo titular: R$ 20/dia (limite mensal típico de R$ 608), sem mexer nas campanhas existentes. A conta-alvo ainda precisa ser identificada no Composio antes da criação. Os itens de prova social podem ficar para depois.
 
 ## 1. Mensuração e contas externas
 
